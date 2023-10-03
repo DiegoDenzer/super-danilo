@@ -1,5 +1,5 @@
 
-group = "br.com.sddtech"
+group = "br.com.s2dtech"
 version = "1.0-SNAPSHOT"
 
 val lwjglVersion = "3.3.2"

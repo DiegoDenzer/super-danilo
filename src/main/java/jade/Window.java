@@ -4,6 +4,7 @@ import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -11,8 +12,6 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 public class Window {
     private int width, height;
     private String title;
-
-
     private static Window window = null;
     private long glfWindow;
 
@@ -33,6 +32,14 @@ public class Window {
         System.out.println("Hello Super Danilo LWJGL" + Version.getVersion() + "!");
         init();
         loop();
+
+        //Free memory -> limpando memoria
+        glfwFreeCallbacks(glfWindow);
+        glfwDestroyWindow(glfWindow);
+
+        //terminate -> terminando
+        glfwTerminate();
+        glfwSetErrorCallback(null).free();
     }
 
     public void init() {

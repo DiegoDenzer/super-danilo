@@ -1,4 +1,4 @@
-package br.com.sddtech;
+package br.com.s2dtech;
 
 import jade.Window;
 
